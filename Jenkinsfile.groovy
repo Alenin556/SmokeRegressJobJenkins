@@ -14,12 +14,9 @@ pipeline {
                 git branch: 'master', credentialsId: 'jenkins', url: 'https://github.com/Alenin556/SmokeRegressJobJenkins.git'
             }
         }
-        stage('Regress tests') {
-            when {
-                expression { return params.regress}
-            }
+        stage('Smoke tests') {
             steps {
-                bat "mvn -Dgroups=regress verify test"
+                bat "mvn -Dgroups=smoke verify test"
             }
         }
     }

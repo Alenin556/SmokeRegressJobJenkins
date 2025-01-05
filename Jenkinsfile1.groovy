@@ -15,9 +15,6 @@ pipeline {
             }
         }
         stage('Regress tests') {
-            when {
-                expression { return params.regress}
-            }
             steps {
                 bat "mvn -Dgroups=regress verify test"
             }
@@ -25,9 +22,7 @@ pipeline {
     }
 
     post {
-        // триггер always генерирует отчет всегда при любых обстоятельствах и ошибках на раних стадиях
         always {
-            // базовые настройки для генерации отчета (тригер и путь до результатов)
             allure ([
                     reportBuildPolicy: 'ALWAYS',
                     results: [[path: 'target/allure-results']]
