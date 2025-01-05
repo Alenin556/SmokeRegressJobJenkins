@@ -36,7 +36,9 @@ pipeline {
                     to: 'aleninmailbox@gmail.com',
                     subject: "Build #${env.BUILD_NUMBER}",
                     body: "regress results.",
-                    attachFiles: 'allure-report//*')
+                    attachFiles: 'allure-report//*',
+                    mimeType: 'text/html' // Укажите тип содержимого для отправляемого письма
+            )
         }
     }
 }
