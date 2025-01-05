@@ -32,11 +32,6 @@ pipeline {
                     reportBuildPolicy: 'ALWAYS',
                     results: [[path: 'target/allure-results']]
             ])
-            emailext(
-                    to: 'aleninmailbox@gmail.com',
-                    subject: "Build #${env.BUILD_NUMBER}",
-                    body: "Results.",
-                    attachFiles: 'allure-report//*')
         }
     }
 }
