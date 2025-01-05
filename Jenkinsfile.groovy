@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Забираем репо c гитхаб
-                git branch: 'master', credentialsId: 'jenkins', url: 'https://github.com/Alenin556/MavenAllureJenkins.git'
+                git branch: 'master', credentialsId: 'git', url: 'https://github.com/Alenin556/SmokeRegressJobJenkins.git'
             }
         }
         stage('Smoke tests') {
