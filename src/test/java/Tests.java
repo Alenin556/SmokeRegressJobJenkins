@@ -6,13 +6,13 @@ public class Tests {
 
     @Test
     @Tag("smoke")
-    public void testS(){
+    public void smokeTest(){
         System.out.println("smoke");
     }
 
     @Test
     @Tag("regress")
-    public void testR(){
+    public void regressTest(){
         System.out.println("regress");
     }
 }
