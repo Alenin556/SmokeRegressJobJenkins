@@ -33,12 +33,12 @@ pipeline {
                     results: [[path: 'target/allure-results']]
             ])
             emailext(
+                    mimeType: 'text/html',
+                    subject: '$PROJECT_NAME #$BUILD_NUMBER $BUILD_STATUS Test Execution Summary',
                     to: 'aleninmailbox@gmail.com',
-                    subject: "Build #${env.BUILD_NUMBER}",
-                    body: "regress results.",
-                    attachFiles: 'allure-report//*',
-                    mimeType: 'text/html' // Укажите тип содержимого для отправляемого письма
-            )
+                    recipientProviders: [requestor()],
+                    body:  ''' regress ${SCRIPT, template = "managed:AllureReportEmail"}''',
+                    attachLog: false)
         }
     }
 }
