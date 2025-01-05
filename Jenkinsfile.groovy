@@ -35,7 +35,7 @@ pipeline {
             emailext(
                     to: 'aleninmailbox@gmail.com',
                     subject: "Build #${env.BUILD_NUMBER}",
-                    body: "Results.",
+                    body: "regress results.",
                     attachFiles: 'allure-report//*')
         }
     }
